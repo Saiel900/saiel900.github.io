@@ -124,13 +124,13 @@
                           speed: 5000,
                           autoplay: {
                               delay: 1,
-                              disableOnInteraction: true,
+                              disableOnInteraction: false,
                               reverseDirection: reverse_direction,
                           },
                           loop: true,
                           slidesPerView: 'auto',
                           allowTouchMove: false,
-                          disableOnInteraction: true
+                          disableOnInteraction: false
                       });
                   } else{                   
                   var swiper = new Swiper( '.pbmit-element-viewtype-carousel-' + x, { 
@@ -513,4 +513,24 @@
               
           }
       )};
+
+  // Service Square Cards Toggle
+  jQuery(document).ready(function($) {
+      $('.service-square-card').on('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active from all cards
+          $('.service-square-card').removeClass('active');
+          $(this).addClass('active');
+          
+          // Get target tab
+          var target = $(this).attr('data-bs-target');
+          
+          // Hide all tab panes
+          $('.tab-pane').removeClass('show active');
+          
+          // Show target pane
+          $(target).addClass('show active');
+      });
+  });
   

@@ -28,6 +28,7 @@
     background-image: url(../images/homepage-1/bg/yoga-pattern-new-01.png);
 }
 
+
 .ihbox-one_bg .row {
     display: flex;
     align-content: center;
@@ -316,6 +317,78 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 
 .about-us-two_ihbox {
     padding-bottom: 55px;
+}
+
+/* Custom Marquee Section */
+.custom-marquee-section {
+    background-color: #e5c466;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.custom-marquee .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+.custom-marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+}
+
+.custom-marquee-tag {
+    padding: 0 30px;
+}
+
+.custom-marquee-title {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.custom-marquee-title:hover {
+    color: #000000;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+    .custom-marquee-section {
+        height: 80px;
+    }
+    
+    .custom-marquee-item {
+        height: 80px;
+    }
+    
+    .custom-marquee-title {
+        font-size: 24px;
+    }
+    
+    .custom-marquee-tag {
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .custom-marquee-section {
+        height: 100px;
+    }
+    
+    .custom-marquee-item {
+        height: 100px;
+    }
+    
+    .custom-marquee-title {
+        font-size: 30px;
+    }
 }
 
 .marquee-section_two {
@@ -622,9 +695,8 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 }
 
 /** Homepage 03 **/
-.marquee-section_three {
-    padding: 85px 0px 95px 0px;
-}
+
+
 
 .tab_btn {
     position: absolute;
@@ -687,7 +759,8 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon {
 }
 
 .testimonial-three_bg {
-    background-image: url(../images/homepage-3/testimonial/5.jpg);
+    background-color: #284B71 !important;
+    background-image: none !important;
     /* background-position: left center; */
     /* background-position: bottom center; */
     background-position: right !important;
@@ -2916,7 +2989,7 @@ aside.widget.widget-tag-cloud a:hover {
     position: relative;
     background-image: url(../images/homepage-3/yoga-pattern-new-01.png);
     border-radius: 30px 30px 30px 30px;
-    background-color: var(--pbmit-global-color);
+    background-color: #284B71 !important;
 }
 
 .contact-us-right-box .pbmit-animation-style4 img {
@@ -3138,7 +3211,7 @@ textarea.form-control {
 }
 
 .pbmit-btn1 {
-    border: 1px solid #fff;
+    border: none;
 }
 
 .heilight {
@@ -3164,4 +3237,29 @@ textarea.form-control {
     .btn-sub-mobile{
         display: none;
     }
+}
+
+    @media only screen and (max-width: 768px) {
+    #rev_slider_1_3_forcefullwidth {
+        display: none !important; 
+    }
+    .pbmit-title1{
+    font-size: 18px;
+}
+}
+.pbmit-title1{
+    font-size: 23px;
+}
+ @media (max-width: 767px) {
+  .marquee-section_three {
+    padding: 40px 0;
+  }
+}
+.marquee-section_three::before {
+    background: #e5c465 !important;
+}
+
+.marquee-section_three .marquee-inner {
+  overflow: hidden;
+  position: relative;
 }

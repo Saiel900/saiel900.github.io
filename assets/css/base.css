@@ -41,15 +41,15 @@ INDEX:
      --pbmit-global-color-rgb: rgb(60, 83, 110,1);
      --pbmit-secondary-color-rgb:rgb(229, 196, 102);
      --pbmit-responsive-breakpoint: 1200px;
-     --pbmit-body-typography-font-family:'Roboto', sans-serif;
+     --pbmit-body-typography-font-family:'Inter', sans-serif;
      --pbmit-body-typography-variant: regular;
      --pbmit-body-typography-font-size: 16px;
-     --pbmit-body-typography-line-height: 1.5;
+     --pbmit-body-typography-line-height: 1.6;
      --pbmit-body-typography-color: #666666;
-     --pbmit-heading-typography-font-family:'Croogla 4F';
+     --pbmit-heading-typography-font-family:'Poppins', sans-serif;
      --pbmit-heading-color: #181a17;
-     --pbmit-heading-font-variant: 500;
-     --pbmit-btn-typography-font-family:'Sora', sans-serif;
+     --pbmit-heading-font-variant: 700;
+     --pbmit-btn-typography-font-family:'Poppins', sans-serif;
      --pbmit-btn-typography-variant: 500;
      --pbmit-btn-typography-font-size: 13px;
      --pbmit-btn-typography-line-height: 23px;
@@ -311,9 +311,10 @@ INDEX:
 	 text-transform: uppercase;
 	 font-style: normal;
      /* padding: 18px 35px; */
-     padding: 18px 20px;
+     padding: 8px 14px;
      border: none;
 	 border-radius: 50px;
+	 font-size: 12px;
 	 transition: all .3s;
 	 z-index: 1;
 	 color: var(--pbmit-blackish-color);
@@ -369,8 +370,8 @@ INDEX:
 	color: var(--pbmit-blackish-color);
 }
 .pbmit-btn-global{
-	color: var(--pbmit-white-color);
-    background-color: #284b71;
+	color: var(--pbmit-blackish-color);
+    background: linear-gradient(135deg, #e5c466 0%, #d4b454 100%);
 }
 .pbmit-btn-global:hover .pbmit-button-icon:before{
 	transform: scale(1) translate(-2px,0);
@@ -379,7 +380,7 @@ INDEX:
 	transform: scale(0.26) translate(45px, -50px);
 }
 .pbmit-btn-global svg path{
-	stroke: var(--pbmit-white-color);
+	stroke: #000;
 }
 .pbmit-btn-outline{
 	background-color: transparent;

@@ -521,7 +521,7 @@ body {
 		transform: translateX(400px);
 		opacity: 0;
 	}
-	.active .pbmit-menu-wrap{
+	header.active .pbmit-menu-wrap{
 		right: 0px;
 		visibility: visible;
 		opacity: 1;
@@ -536,6 +536,26 @@ body {
 		transition-delay: 600ms;
 		opacity: 1;
 	}
+	
+	/* Ensure menu items are visible when menu is active */
+	header.active .pbmit-menu-wrap .navigation {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
+	
+	header.active .pbmit-menu-wrap .navigation li {
+		display: block !important;
+		opacity: 1 !important;
+	}
+	
+	/* Fix navbar-collapse positioning in active menu */
+	header.active .navbar-collapse {
+		position: relative !important;
+		top: 0 !important;
+		display: block !important;
+	}
+	
 	.pbmit-mobile-menu-bg {
 		position: fixed;
 		right: 0;
@@ -559,7 +579,7 @@ body {
 		-o-transition-delay: 300ms;
 		transition-delay: 300ms;
 	}
-	.active .pbmit-mobile-menu-bg {
+	header.active .pbmit-mobile-menu-bg {
 		opacity: 1;
 		width: 100%;
 		visibility: visible;
