@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Services: Mobile Before/After Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .comparison-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e5c466;
+        }
+
+        .before {
+            border-top: 5px solid #e74c3c;
+        }
+
+        .after {
+            border-top: 5px solid #27ae60;
+        }
+
+        .demo-content {
+            background: #f5f3ed;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(229, 196, 102, 0.3);
+        }
+
+        .demo-card.active {
+            background: linear-gradient(135deg, #e5c466 0%, #f5f5dc 100%);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* BEFORE Styles */
+        .before .demo-card {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .before .demo-content-area {
+            margin-top: 20px;
+        }
+
+        .before .demo-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .before .demo-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* AFTER Styles */
+        .after .demo-card {
+            min-height: 140px;
+            padding: 25px 20px;
+        }
+
+        .after .demo-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .after .demo-content-area {
+            margin-top: 15px;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .after .demo-content-area.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .after .demo-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .after .demo-image {
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin: 15px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .features-list {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .features-list h3 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #e5c466;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-before {
+            background: #ffe5e5;
+            color: #e74c3c;
+        }
+
+        .badge-after {
+            background: #e5ffe5;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Key Services: Mobile Redesign Comparison</h1>
+
+        <div class="comparison-grid">
+            <!-- BEFORE -->
+            <div class="comparison-card before">
+                <h2><span class="badge badge-before">Before</span> Old Layout</h2>
+                <div class="demo-content">
+                    <div class="demo-card">
+                        <h3>High-Level Yoga Classes</h3>
+                        <div style="font-size: 12px; color: #666;">Large card • 200px height</div>
+                    </div>
+                    <div class="demo-card">
+                        <h3>Corporate Yoga Packages</h3>
+                        <div style="font-size: 12px; color: #666;">Large card • 200px height</div>
+                    </div>
+                    <div class="demo-content-area">
+                        <div class="demo-image">Large Image<br>(375px)</div>
+                        <div class="demo-text">
+                            <strong>Text content...</strong><br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AFTER -->
+            <div class="comparison-card after">
+                <h2><span class="badge badge-after">After</span> New Layout</h2>
+                <div class="demo-content">
+                    <div class="demo-card active" onclick="toggleAfterContent(1)">
+                        <h3>High-Level Yoga Classes</h3>
+                        <div style="font-size: 12px; opacity: 0.8;">Compact • 140px • Tap to toggle</div>
+                    </div>
+                    <div class="demo-card" onclick="toggleAfterContent(2)">
+                        <h3>Corporate Yoga Packages</h3>
+                        <div style="font-size: 12px; opacity: 0.8;">Compact • 140px • Tap to toggle</div>
+                    </div>
+                    <div class="demo-content-area show" id="after-content-1">
+                        <div class="demo-text">
+                            <strong>✨ Text appears first!</strong><br>
+                            Clean, readable content loads immediately. Users see information before images.
+                        </div>
+                        <div class="demo-image">Smaller Image<br>(320px)<br>↑ Animated</div>
+                    </div>
+                    <div class="demo-content-area" id="after-content-2">
+                        <div class="demo-text">
+                            <strong>✨ Text appears first!</strong><br>
+                            Focused content display with one-at-a-time visibility.
+                        </div>
+                        <div class="demo-image">Smaller Image<br>(320px)<br>↑ Animated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Improvements -->
+        <div class="features-list">
+            <h3>✅ Key Improvements in Mobile View</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>30% Smaller Cards</strong><br>
+                        140px vs 200px height
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>One-at-a-Time Toggle</strong><br>
+                        Reduces clutter and scrolling
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Text-First Layout</strong><br>
+                        Content before images
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>15% Smaller Images</strong><br>
+                        320px max width
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Smooth Animations</strong><br>
+                        Images slide up on reveal
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Clear Active State</strong><br>
+                        Golden gradient on active
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Better Typography</strong><br>
+                        Optimized font sizes
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>No Horizontal Scroll</strong><br>
+                        All content fits viewport
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">-30%</div>
+                <div class="stat-label">Card Height</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">-15%</div>
+                <div class="stat-label">Image Size</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">50%</div>
+                <div class="stat-label">Less Scrolling</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0.5s</div>
+                <div class="stat-label">Animation Time</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAfterContent(num) {
+            // Remove active from all cards
+            const cards = document.querySelectorAll('.after .demo-card');
+            cards.forEach(card => card.classList.remove('active'));
+            
+            // Hide all content areas
+            const contents = document.querySelectorAll('.after .demo-content-area');
+            contents.forEach(content => content.classList.remove('show'));
+            
+            // Activate clicked card and its content
+            cards[num - 1].classList.add('active');
+            document.getElementById('after-content-' + num).classList.add('show');
+        }
+    </script>
+</body>
+</html>
+

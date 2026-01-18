@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Icon Variations - AstrovaFit</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #284B71 0%, #1e3a5f 100%);
+            padding: 40px;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #e5c466;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .icon-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(229, 196, 102, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .icon-card:hover {
+            transform: translateY(-5px);
+            border-color: #e5c466;
+            box-shadow: 0 10px 30px rgba(229, 196, 102, 0.3);
+        }
+        .icon-display {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+        .menu-icon {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        .menu-icon:hover {
+            color: #e5c466;
+            filter: drop-shadow(0 0 8px rgba(229, 196, 102, 0.6));
+            transform: scale(1.15);
+        }
+        .icon-card h3 {
+            color: #e5c466;
+            margin-bottom: 15px;
+        }
+        .icon-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .code-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .code-section h2 {
+            color: #e5c466;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border-left: 4px solid #e5c466;
+        }
+        code {
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .state-demo {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .state-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧘‍♀️ Mobile Menu Icon Variations</h1>
+        
+        <div class="icon-grid">
+            <!-- Variation 1: Lotus Stack -->
+            <div class="icon-card">
+                <h3>Variation 1: Lotus Stack</h3>
+                <div class="icon-display">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 28 28" fill="none">
+                        <path d="M4 8 C4 8, 8 6, 14 6 C20 6, 24 8, 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 14 C4 14, 8 12, 14 12 C20 12, 24 14, 24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 20 C4 20, 8 18, 14 18 C20 18, 24 20, 24 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p><strong>✨ Currently Active</strong></p>
+                <p>Curved lines inspired by lotus petals. Organic, calm, and clearly indicates a menu. Perfect balance of wellness aesthetic and functionality.</p>
+            </div>
+
+            <!-- Variation 2: Zen Circles -->
+            <div class="icon-card">
+                <h3>Variation 2: Zen Circles</h3>
+                <div class="icon-display">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 28 28" fill="none">
+                        <circle cx="6" cy="8" r="2" fill="currentColor"/>
+                        <line x1="11" y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        
+                        <circle cx="6" cy="14" r="2" fill="currentColor"/>
+                        <line x1="11" y1="14" x2="24" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        
+                        <circle cx="6" cy="20" r="2" fill="currentColor"/>
+                        <line x1="11" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p>Meditation dots with lines. Represents mindfulness and focus. Circles suggest balance points or chakras.</p>
+            </div>
+
+            <!-- Variation 3: Flow Lines -->
+            <div class="icon-card">
+                <h3>Variation 3: Flow Lines</h3>
+                <div class="icon-display">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 28 28" fill="none">
+                        <path d="M4 7 L24 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 14 L20 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 21 L24 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Subtle yoga pose silhouette on the right -->
+                        <circle cx="22" cy="14" r="1.5" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                </div>
+                <p>Clean lines with asymmetry suggesting movement and flow. Minimal and modern with subtle fitness element.</p>
+            </div>
+        </div>
+
+        <!-- State Demonstrations -->
+        <div class="code-section">
+            <h2>📱 Interaction States</h2>
+            <p>All variations include:</p>
+            <div class="state-demo">
+                <div>
+                    <div class="state-label">Default</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 28 28" fill="none" style="color: #ffffff;">
+                        <path d="M4 8 C4 8, 8 6, 14 6 C20 6, 24 8, 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 14 C4 14, 8 12, 14 12 C20 12, 24 14, 24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 20 C4 20, 8 18, 14 18 C20 18, 24 20, 24 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="state-label">Hover</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 28 28" fill="none" style="color: #e5c466; filter: drop-shadow(0 0 8px rgba(229, 196, 102, 0.6));">
+                        <path d="M4 8 C4 8, 8 6, 14 6 C20 6, 24 8, 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 14 C4 14, 8 12, 14 12 C20 12, 24 14, 24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 20 C4 20, 8 18, 14 18 C20 18, 24 20, 24 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="state-label">Active</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 28" fill="none" style="color: #d4b454;">
+                        <path d="M4 8 C4 8, 8 6, 14 6 C20 6, 24 8, 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 14 C4 14, 8 12, 14 12 C20 12, 24 14, 24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M4 20 C4 20, 8 18, 14 18 C20 18, 24 20, 24 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Code -->
+        <div class="code-section">
+            <h2>💻 How to Switch Variations</h2>
+            <p>Replace the SVG in <code>index.html</code> (line ~78):</p>
+            
+            <h3 style="color: #e5c466; margin-top: 30px;">Variation 2: Zen Circles</h3>
+            <pre><code>&lt;svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"&gt;
+    &lt;circle cx="6" cy="8" r="2" fill="currentColor"/&gt;
+    &lt;line x1="11" y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+    
+    &lt;circle cx="6" cy="14" r="2" fill="currentColor"/&gt;
+    &lt;line x1="11" y1="14" x2="24" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+    
+    &lt;circle cx="6" cy="20" r="2" fill="currentColor"/&gt;
+    &lt;line x1="11" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h3 style="color: #e5c466; margin-top: 30px;">Variation 3: Flow Lines</h3>
+            <pre><code>&lt;svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"&gt;
+    &lt;path d="M4 7 L24 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+    &lt;path d="M4 14 L20 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+    &lt;path d="M4 21 L24 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/&gt;
+    &lt;circle cx="22" cy="14" r="1.5" fill="currentColor" opacity="0.6"/&gt;
+&lt;/svg&gt;</code></pre>
+        </div>
+
+        <div class="code-section">
+            <h2>✨ Features</h2>
+            <ul style="line-height: 2;">
+                <li>✅ SVG-based for crisp display on all screen sizes</li>
+                <li>✅ Smooth color transitions (white → golden)</li>
+                <li>✅ Scale animation on hover (1.1x)</li>
+                <li>✅ Glow effect on hover using drop-shadow</li>
+                <li>✅ Press feedback with scale (0.95x)</li>
+                <li>✅ Wellness/fitness aesthetic with organic curves</li>
+                <li>✅ Accessible and clearly indicates menu function</li>
+                <li>✅ Lightweight (< 1KB per icon)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
