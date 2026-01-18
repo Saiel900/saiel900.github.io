@@ -1,0 +1,81 @@
+/* =====================================================
+   MOBILE OVERFLOW FIX
+   
+   Issue: Page shifts left on mobile starting from Why Choose Us section
+   Cause: Marquee section with container-fluid and swiper causing overflow
+   
+   Solution: Constrain elements on mobile to prevent horizontal overflow
+===================================================== */
+
+@media (max-width: 768px) {
+    /* Fix body and html overflow */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    /* Fix marquee section overflow */
+    .marquee-section_three {
+        overflow: hidden;
+        max-width: 100%;
+    }
+    
+    .marquee-section_three .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    /* Constrain swiper */
+    .marquee-section_three .swiper-slider {
+        max-width: 100%;
+        overflow: visible;
+    }
+    
+    .marquee-section_three .swiper-wrapper {
+        max-width: 100%;
+    }
+    
+    /* Fix overlap margins on mobile */
+    .overlap-left {
+        margin-left: 0 !important;
+    }
+    
+    .overlap-right {
+        margin-right: 0 !important;
+    }
+    
+    /* Ensure all sections stay within viewport */
+    section {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    /* Fix container-fluid on mobile */
+    .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        max-width: 100%;
+    }
+    
+    /* Constrain all images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fix row gutters */
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* Ensure video wrappers don't overflow */
+    .video-wrapper,
+    .youtube-col,
+    .cert-carousel-container {
+        max-width: 100%;
+    }
+}

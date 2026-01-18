@@ -1,27 +1,82 @@
 /* Mobile Menu Styles */
 
+/* =====================================================
+   CUSTOM WELLNESS MENU ICON
+   - Lotus-inspired curved lines
+   - Smooth transitions for hover/active states
+   - Color changes to indicate interaction
+===================================================== */
+
 /* Hamburger Button */
 .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent !important;
+    display: flex;               
+    align-items: center;        
+    justify-content: center;     
+
+    width: 44px;
+    height: 44px;
+
+    background: none !important;
     border: none;
-    border-radius: 50%;
-    cursor: pointer;
     padding: 0;
-    margin-right: 0;
+
     position: absolute;
-    right: 15px;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%); 
+
+    cursor: pointer;
     z-index: 1001;
+    transition: all 0.3s ease;
 }
 
-.mobile-menu-toggle i {
-    font-size: 24px;
-    color: #fff !important;
+/* Custom SVG Menu Icon */
+.mobile-menu-toggle .menu-icon {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle .menu-icon line {
+    transition: all 0.3s ease;
+}
+
+/* Hover State - Golden glow */
+.mobile-menu-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.mobile-menu-toggle:hover .menu-icon {
+    color: #e5c466;
+    filter: drop-shadow(0 0 8px rgba(229, 196, 102, 0.6));
+}
+
+/* Active/Pressed State */
+.mobile-menu-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.mobile-menu-toggle:active .menu-icon {
+    color: #d4b454;
+}
+
+/* When menu is open */
+.mobile-menu-toggle.active .menu-icon {
+    color: #e5c466;
+}
+
+/* Animation when menu opens - X transition */
+.mobile-menu-toggle.active .menu-icon line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active .menu-icon line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .menu-icon line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    transform-origin: center;
 }
 
 .hamburger-line {

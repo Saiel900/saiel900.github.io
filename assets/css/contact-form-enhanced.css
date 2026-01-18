@@ -11,8 +11,11 @@
 
 @media (max-width: 767px) {
     .contact-form-card {
-        padding: 30px 20px;
-        border-radius: 16px;
+        padding: 30px 15px;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        margin: 0;
     }
 }
 
@@ -137,16 +140,69 @@
     }
     
     .floating-input {
-        height: 52px;
-        font-size: 15px;
+        height: 58px !important;
+        font-size: 16px !important;
+        padding: 22px 18px 10px 18px !important;
+    }
+    
+    .floating-textarea {
+        min-height: 140px !important;
+        padding-top: 26px !important;
     }
     
     .floating-label {
-        font-size: 15px;
+        font-size: 16px !important;
+        top: 18px !important;
+        left: 18px !important;
     }
     
     .floating-input:focus + .floating-label,
     .floating-input:not(:placeholder-shown) + .floating-label {
-        font-size: 11px;
+        font-size: 12px !important;
+        top: 8px !important;
+    }
+    
+    .floating-textarea + .floating-label {
+        top: 22px !important;
+    }
+    
+    .floating-textarea:focus + .floating-label,
+    .floating-textarea:not(:placeholder-shown) + .floating-label {
+        top: 8px !important;
+    }
+    
+    #contact .pbmit-btn-global {
+        height: 58px !important;
+        font-size: 15px !important;
+    }
+    
+    #contact .pbmit-button-text {
+        font-size: 10px !important;
+    }
+    
+    /* MOBILE FORM CONTAINER WIDTH FIX */
+    /* Override Bootstrap col-md-10 col-lg-8 restrictions on mobile */
+    #contact .row.g-0 > .col-md-10.col-lg-8 {
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        padding: 0 5px !important; /* Maximum width - minimal padding */
+    }
+    
+    /* Remove card visual styling and maximize width */
+    .contact-form-card {
+        margin: 0 !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    
+    /* Ensure form inputs use full available width */
+    #contact .contact-form .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    #contact .contact-form .row > [class*="col-"] {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 }

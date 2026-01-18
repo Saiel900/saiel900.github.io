@@ -123,28 +123,60 @@
 
 
 @media (max-width: 768px) {
+  #youtube-gallery {
+    padding: 40px 15px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   #youtube-gallery .youtube-row {
     flex-direction: column;
     align-items: center;
+    display: flex !important;
+    visibility: visible !important;
   }
 
   #youtube-gallery .youtube-col {
     flex: 1 1 100%;
-    max-inline-size: 100%;
+    max-inline-size: 90%;
+    width: 90%;
+    margin: 0 auto 20px;
+    display: block !important;
+    visibility: visible !important;
   }
 
   #youtube-gallery .video-wrapper {
     padding-block-start: 56.25%; 
+    display: block !important;
+    visibility: visible !important;
+    position: relative;
+  }
+
+  #youtube-gallery .video-wrapper iframe {
+    display: block !important;
+    visibility: visible !important;
   }
 
   #youtube-gallery .pbmit-title {
     font-size: 26px;
+    display: block !important;
+    visibility: visible !important;
   }
 
   #youtube-gallery .pbmit-subtitle {
     font-size: 25px;
+    display: block !important;
+    visibility: visible !important;
   }
+  
   #youtube-gallery .bottom-videos .youtube-col {
-  min-inline-size: 280px;
-}
+    min-inline-size: 280px;
+  }
+
+  #youtube-gallery .youtube-btn-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    text-align: center;
+  }
 }

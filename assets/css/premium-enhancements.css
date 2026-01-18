@@ -222,7 +222,7 @@ p {
 .marquee-section_two,
 .marquee-section_three,
 .footer-top-section {
-    background: #e5c466 !important;
+    background: #0a1628 !important;
     padding: 48px 0 !important;
     position: relative;
 }
@@ -282,7 +282,7 @@ p {
 ======================================== */
 
 .site-footer {
-    background: linear-gradient(180deg, #2a3d52 0%, #3c536e 100%);
+    background: #0a1628;
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -967,18 +967,40 @@ footer .social-icon a:hover {
         padding: 50px 0;
     }
     
+    .why-choose-section .row {
+        gap: 12px;
+    }
+    
     .why-card {
-        padding: 30px 20px;
-        margin-bottom: 20px;
+        padding: 18px 12px;
+        margin-bottom: 0;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     
     .why-card-title {
-        font-size: 20px;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+    .why-card-text {
+        font-size: 12px;
+        line-height: 1.4;
     }
     
     .why-card-icon {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    
+    .why-card-icon svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -988,6 +1010,37 @@ footer .social-icon a:hover {
 
 .about-toggle-section {
     margin-top: 60px;
+}
+
+/* Mobile Back Button - Hidden on Desktop */
+.mobile-back-btn {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #e5c466 0%, #d4b454 100%);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 196, 102, 0.3);
+}
+
+.mobile-back-btn:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 20px rgba(229, 196, 102, 0.4);
+}
+
+.mobile-back-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.mobile-back-btn:hover svg {
+    transform: translateX(-2px);
 }
 
 .about-toggle-btn {
@@ -1115,6 +1168,47 @@ footer .social-icon a:hover {
     border: 2px solid rgba(229, 196, 102, 0.3);
     box-shadow: 0 8px 25px rgba(40, 75, 113, 0.2);
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Clickable certificate hover effect */
+.cert-clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(229, 196, 102, 0.4);
+    border-color: #e5c466;
+}
+
+/* View certificate badge */
+.cert-view-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(229, 196, 102, 0.2);
+    border: 1px solid #e5c466;
+    border-radius: 20px;
+    color: #e5c466;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.cert-clickable:hover .cert-view-badge {
+    background: #e5c466;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.cert-view-badge svg {
+    transition: transform 0.3s ease;
+}
+
+.cert-clickable:hover .cert-view-badge svg {
+    transform: translateX(3px);
 }
 
 .cert-card-carousel img {
@@ -1351,41 +1445,204 @@ footer .social-icon a:hover {
     transform: translateX(5px);
 }
 
+/* Mobile Back Button - Desktop Hidden */
+.mobile-back-btn {
+    display: none; /* Hidden on desktop */
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #e5c466 0%, #d4b454 100%);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 196, 102, 0.3);
+}
+
+.mobile-back-btn:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 20px rgba(229, 196, 102, 0.4);
+}
+
+.mobile-back-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.mobile-back-btn:hover svg {
+    transform: translateX(-2px);
+}
+
 @media (max-width: 768px) {
+    /* =====================================================
+       MOBILE-FIRST ABOUT SECTION TOGGLE SYSTEM
+       
+       Behavior:
+       - Initially shows 3 option cards (Certifications, Articles, Key Services)
+       - When user taps an option:
+         * All option cards hide
+         * Back button appears at top
+         * Selected content displays below back button
+         * Smooth scroll to content
+       - Back button returns to 3 options view
+       
+       Desktop (>768px): 
+       - Original behavior preserved
+       - All options visible at top
+       - Content changes below without hiding options
+       - No back button shown
+    ===================================================== */
+    
     .about-toggle-section {
         margin-top: 40px;
     }
     
-    .about-toggle-content {
-        padding: 20px;
+    /* Show back button on mobile when content is active */
+    .mobile-back-btn.show {
+        display: flex;
+        width: 100%;
     }
     
+    /* Toggle Buttons - Compact on Mobile */
     .about-toggle-btn {
-        padding: 15px;
+        padding: 18px 15px;
+        font-size: 15px;
+        min-height: 100px;
+        justify-content: center;
+    }
+    
+    .about-toggle-btn svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .about-toggle-btn span {
         font-size: 14px;
     }
     
+    /* Hide all buttons when content is shown on mobile */
+    #toggleButtonsRow.mobile-content-active {
+        display: none !important;
+    }
+    
+    /* ===== CONTENT SECTIONS - MOBILE OPTIMIZED ===== */
+    
+    .about-toggle-content {
+        padding: 25px 20px;
+        border-radius: 15px;
+        margin-top: 0;
+    }
+    
+    .about-toggle-content h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
+    
+    /* ===== CERTIFICATIONS - STACKED VIEW (No Carousel) ===== */
+    
+    .cert-carousel-container {
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    /* Hide carousel navigation completely on mobile */
+    .cert-carousel-btn {
+        display: none !important;
+    }
+    
+    .cert-carousel-indicators {
+        display: none !important;
+    }
+    
+    /* Stack certificates vertically - easier browsing than carousel */
+    .cert-carousel {
+        overflow: visible;
+    }
+    
+    .cert-carousel-track {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cert-carousel-item {
+        display: block !important; /* Show all items stacked */
+        min-width: 100%;
+        padding: 0;
+    }
+    
+    .cert-card-carousel {
+        padding: 20px;
+    }
+    
+    .cert-card-carousel img {
+        max-height: 400px;
+    }
+    
+    .cert-card-carousel h5 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    /* Certificate view badge mobile styling */
+    .cert-view-badge {
+        font-size: 13px;
+        padding: 6px 12px;
+        margin-top: 12px;
+    }
+    
+    .cert-view-badge svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* ===== ARTICLES - OPTIMIZED MOBILE CARDS ===== */
+    
     .article-card-featured {
-        padding: 30px 20px;
-        min-height: 280px;
+        padding: 25px 20px;
+        min-height: 250px;
+        margin-bottom: 15px;
     }
     
     .article-icon-featured {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 20px;
+        width: 65px;
+        height: 65px;
+        margin-bottom: 15px;
     }
     
     .article-icon-featured svg {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     
     .article-card-featured h4 {
-        font-size: 20px;
+        font-size: 18px;
+        margin-bottom: 12px;
     }
     
     .article-card-featured p {
         font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .article-read-more {
+        font-size: 14px;
+    }
+    
+    /* ===== KEY SERVICES PREVIEW ===== */
+    
+    .about-toggle-content#keyservices p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+    }
+    
+    .about-toggle-content#keyservices .pbmit-btn {
+        font-size: 14px;
+        padding: 12px 25px;
     }
 }

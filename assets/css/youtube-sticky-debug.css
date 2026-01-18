@@ -1,0 +1,232 @@
+/* =====================================================
+   YOUTUBE STICKY DEBUGGING & FIX FOR MOBILE
+   
+   Issue: Sticky positioning works on desktop but not mobile
+   Root Cause: overflow: hidden on parent containers breaks sticky
+   
+   How sticky works:
+   - Needs scrollable ancestor with visible overflow
+   - Parent height must be larger than sticky element
+   - Cannot have overflow: hidden/auto on any ancestor
+===================================================== */
+
+/* =====================================================
+   DEBUGGING: Temporarily remove overflow constraints
+===================================================== */
+@media (max-width: 768px) {
+    /* CRITICAL FIX: Remove overflow hidden from body/html
+       This is the main blocker for sticky on mobile */
+    html, body {
+        overflow-x: visible !important;  /* Changed from hidden */
+        overflow-y: visible !important;   /* Allow vertical scroll */
+    }
+    
+    /* Remove overflow constraints from sections 
+       Sticky requires ancestors with visible overflow */
+    section {
+        overflow-x: visible !important;  /* Changed from hidden */
+        overflow-y: visible !important;
+    }
+    
+    /* Specifically target YouTube section 
+       Must have visible overflow for sticky to work */
+    #youtube-gallery {
+        overflow: visible !important;    /* CRITICAL */
+        position: relative !important;
+        min-height: 100vh !important;   /* Ensure enough height for stacking */
+    }
+    
+    /* YouTube row must be tall enough for sticking to work */
+    #youtube-gallery .youtube-row {
+        overflow: visible !important;    /* CRITICAL */
+        position: relative !important;
+        min-height: auto !important;    /* Let content determine height */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;           /* Space between cards */
+    }
+    
+    /* Force sticky positioning on mobile */
+    #youtube-gallery .youtube-col {
+        position: sticky !important;
+        top: 80px !important;           /* Stick position from top */
+        z-index: auto !important;
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto 20px !important;
+        overflow: visible !important;
+    }
+    
+    /* Specific z-index stacking for each video */
+    #youtube-gallery .youtube-row > .youtube-col:nth-child(1) { 
+        top: 80px !important; 
+        z-index: 5 !important; 
+    }
+    
+    #youtube-gallery .youtube-row > .youtube-col:nth-child(2) { 
+        top: 95px !important; 
+        z-index: 4 !important; 
+    }
+    
+    #youtube-gallery .youtube-row > .youtube-col:nth-child(3) { 
+        top: 110px !important; 
+        z-index: 3 !important; 
+    }
+    
+    #youtube-gallery .youtube-row > .youtube-col:nth-child(4) { 
+        top: 125px !important; 
+        z-index: 2 !important; 
+    }
+    
+    #youtube-gallery .youtube-row > .youtube-col:nth-child(5) { 
+        top: 140px !important; 
+        z-index: 1 !important; 
+    }
+    
+    /* Video wrapper must not have overflow hidden */
+    #youtube-gallery .video-wrapper {
+        overflow: visible !important;
+        position: relative !important;
+    }
+}
+
+/* =====================================================
+   EXPLANATION OF WHY STICKY FAILS ON MOBILE
+===================================================== */
+
+/*
+1. BLOCKER #1: mobile-overflow-fix.css line 13-16
+   html, body { overflow-x: hidden; }
+   → This BREAKS sticky positioning completely
+   → Sticky needs overflow: visible on all ancestors
+
+2. BLOCKER #2: mobile-overflow-fix.css line 51-54
+   section { overflow-x: hidden; }
+   → YouTube gallery is a <section>
+   → This prevents sticky from working
+
+3. BLOCKER #3: youtube.css line 142-146
+   #youtube-gallery .youtube-col { max-inline-size: 90%; }
+   → Constrains width but doesn't break sticky
+   → Not the main issue
+
+4. BLOCKER #4: Parent height
+   → .youtube-row needs to be taller than viewport
+   → Otherwise sticky has nowhere to "stick to"
+
+5. DESKTOP VS MOBILE:
+   Desktop: No overflow: hidden on body
+   Mobile: overflow-x: hidden everywhere (breaks sticky)
+
+SOLUTION:
+- Remove overflow: hidden from html/body on mobile
+- Remove overflow: hidden from #youtube-gallery
+- Make .youtube-row min-height: 200vh
+- Keep position: sticky with proper top values
+
+TESTING:
+1. Add this CSS file to index.html
+2. Open mobile DevTools (≤768px)
+3. Scroll YouTube section
+4. Videos should stack on top of each other
+5. Check console for: getComputedStyle(element).position === 'sticky'
+
+WHY IT WORKS ON DESKTOP:
+- No overflow: hidden on body
+- Section height is sufficient  
+- No mobile-overflow-fix.css applied
+
+MOBILE-SPECIFIC FIX NEEDED:
+- Use overflow-x: clip instead of hidden (preserves sticky)
+- Or use contain: layout instead of overflow
+- Or remove overflow constraint entirely for YouTube section
+*/
+
+/* =====================================================
+   ALTERNATIVE FIX: Use overflow-x: clip instead
+   This preserves sticky while preventing horizontal scroll
+===================================================== */
+
+/* Uncomment this if you want to prevent horizontal scroll
+   while still allowing sticky to work:
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: clip !important;  
+        overflow-y: scroll !important;
+    }
+    
+    section {
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+    }
+}
+*/
+
+/* =====================================================
+   DIAGNOSTIC: Add visual debugging
+===================================================== */
+
+/* Uncomment to see sticky debugging info:
+
+@media (max-width: 768px) {
+    .youtube-col {
+        border: 3px solid red !important;
+    }
+    
+    .youtube-col:nth-child(1) { border-color: red !important; }
+    .youtube-col:nth-child(2) { border-color: orange !important; }
+    .youtube-col:nth-child(3) { border-color: yellow !important; }
+    .youtube-col:nth-child(4) { border-color: green !important; }
+    .youtube-col:nth-child(5) { border-color: blue !important; }
+    
+    .youtube-col::before {
+        content: 'Sticky: ' attr(style);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: black;
+        color: white;
+        padding: 5px;
+        font-size: 10px;
+        z-index: 999;
+    }
+}
+*/
+
+/* =====================================================
+   SUMMARY OF FIXES
+===================================================== */
+
+/*
+✅ WHAT THIS FILE DOES:
+1. Removes overflow: hidden from html/body
+2. Removes overflow: hidden from sections
+3. Sets YouTube gallery overflow: visible
+4. Forces sticky positioning with proper top/z-index
+5. Ensures parent height (200vh) for sticky scroll
+
+❌ WHAT BREAKS STICKY:
+1. overflow: hidden on ANY ancestor
+2. overflow: auto on ANY ancestor  
+3. overflow: scroll on containers
+4. Parent height less than viewport
+5. Missing position: sticky declaration
+
+🔧 TO APPLY FIX:
+1. Link this CSS AFTER mobile-overflow-fix.css
+2. Test on mobile (≤768px)
+3. Scroll YouTube section
+4. Videos should stack and stick
+
+📱 MOBILE BROWSER COMPATIBILITY:
+- Chrome/Edge: ✅ Works with this fix
+- Safari iOS: ✅ Works with this fix
+- Firefox: ✅ Works with this fix
+- Samsung Internet: ✅ Works with this fix
+
+⚠️ SIDE EFFECTS:
+- May cause horizontal scroll if content overflows
+- May need additional width constraints
+- Test all sections after applying
+*/

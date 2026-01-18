@@ -3015,7 +3015,8 @@ body {
 }
 .site-footer .pbmit-footer-widget-col-1 .pbmit-footer-logo img{
 	/* height: 55px; */
-	height: 67px;
+	height: 87px;
+	width: auto;
 }
 .site-footer .pbmit-footer-widget-col-1 .pbmit-footer-text{
 	margin-bottom: 22px;

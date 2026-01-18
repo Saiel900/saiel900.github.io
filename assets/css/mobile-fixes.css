@@ -348,31 +348,65 @@
 @media (max-width: 767px) {
     #youtube-gallery {
         padding: 40px 15px !important;
+        display: block !important;
+        visibility: visible !important;
+        min-height: auto !important;
+        overflow: visible !important;
     }
     
     #youtube-gallery .pbmit-title {
         font-size: 26px !important;
         margin-bottom: 15px !important;
         line-height: 1.3 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     #youtube-gallery .pbmit-subtitle {
         font-size: 16px !important;
         margin-bottom: 10px !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     #youtube-gallery .youtube-row {
         gap: 15px;
+        display: flex !important;
+        flex-direction: column !important;
+        visibility: visible !important;
+    }
+    
+    #youtube-gallery .youtube-col {
+        display: block !important;
+        visibility: visible !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
     }
     
     #youtube-gallery .video-wrapper {
         border-radius: 12px;
         margin-bottom: 15px;
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+    }
+    
+    #youtube-gallery .video-wrapper iframe {
+        display: block !important;
+        visibility: visible !important;
     }
     
     #youtube-gallery .youtube-btn {
         padding: 12px 25px !important;
         font-size: 14px !important;
+    }
+    
+    #youtube-gallery .youtube-btn-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        text-align: center;
+        margin-top: 20px;
     }
 }
 
