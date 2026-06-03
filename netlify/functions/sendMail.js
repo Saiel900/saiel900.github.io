@@ -1,19 +1,20 @@
 
 exports.handler = async function(event) {
 
-const data = JSON.parse(event.body);
-
 try {
 
-await fetch(
+const data = JSON.parse(event.body);
+
+const response = await fetch(
 "https://api.brevo.com/v3/smtp/email",
 {
 
 method:"POST",
 
 headers:{
-"Content-Type":"application/json",
-"api-key":process.env.BREVO_API_KEY
+"accept":"application/json",
+"api-key":process.env.BREVO_API_KEY,
+"content-type":"application/json"
 },
 
 body:JSON.stringify({
@@ -64,7 +65,7 @@ background:#7c3aed;
 color:white;
 text-decoration:none;
 border-radius:12px;
-margin-block-start:15px;
+margin-top:15px;
 "
 >
 
@@ -80,12 +81,31 @@ Join WhatsApp Community
 
 });
 
+const result = await response.json();
+
+console.log("BREVO RESPONSE:", result);
+
+if(!response.ok){
+
+return {
+
+statusCode:500,
+
+body:JSON.stringify({
+error:result
+})
+
+};
+
+}
+
 return {
 
 statusCode:200,
 
 body:JSON.stringify({
-message:"Email Sent"
+success:true,
+result
 })
 
 };
@@ -93,6 +113,8 @@ message:"Email Sent"
 }
 
 catch(error){
+
+console.log("FUNCTION ERROR:", error);
 
 return {
 
