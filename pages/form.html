@@ -1722,11 +1722,18 @@ target="_blank"
 
 <script>
 
+
 const form = document.getElementById('registerForm');
 
 form.addEventListener('submit', async function(e){
 
 e.preventDefault();
+
+const submitBtn =
+document.querySelector('.submit-btn');
+
+submitBtn.innerHTML = 'Submitting...';
+submitBtn.disabled = true;
 
 const name =
 document.getElementById('name').value;
@@ -1752,6 +1759,26 @@ document.getElementById('level').value;
 const reason =
 document.getElementById('reason').value;
 
+/* INSTANT SUCCESS MESSAGE */
+
+alert(
+`🌸 Thank You ${name}!
+
+You have successfully registered
+for the 3-Day Yoga Wellness Workshop ✨
+
+Please check your Email 💌`
+);
+
+form.reset();
+
+submitBtn.innerHTML =
+'JOIN THE WORKSHOP ✨';
+
+submitBtn.disabled = false;
+
+/* GOOGLE FORM BACKGROUND */
+
 const googleFormURL =
 'https://docs.google.com/forms/d/e/1FAIpQLSePKzUxatRXwhptEuvIEec7DdSLnXkD8L4nyeEsrEbJ5DXk3A/formResponse';
 
@@ -1773,6 +1800,8 @@ formData.append('entry.42020511', level);
 
 formData.append('entry.1124123768', reason);
 
+/* SEND BOTH IN BACKGROUND */
+
 fetch(googleFormURL,{
 
 method:'POST',
@@ -1781,9 +1810,7 @@ mode:'no-cors',
 
 body:formData
 
-})
-
-.then(() => {
+}).catch(err => console.log(err));
 
 fetch('/.netlify/functions/sendMail', {
 
@@ -1806,46 +1833,11 @@ reason:reason
 
 })
 
-})
-
-.then(() => {
-
-alert(
-`🌸 Thank You ${name}!
-
-You have successfully registered
-for the 3-Day Yoga Wellness Workshop ✨
-
-Please check your Email 💌`
-);
-
-form.reset();
-
-})
-
-.catch((error) => {
-
-console.log(error);
-
-alert(
-'Email sending failed.'
-);
+}).catch(err => console.log(err));
 
 });
 
-})
 
-.catch((error) => {
-
-console.error(error);
-
-alert(
-'Something went wrong. Please try again.'
-);
-
-});
-
-});
 
 </script>
 
