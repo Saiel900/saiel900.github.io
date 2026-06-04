@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Astrovafit - 5 Day Yoga Reset Challenge</title>
+<title>Astrovafit - 3 Day Yoga Wellness Workshop</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,66 @@ font-family:'Outfit',sans-serif;
 background:#050816;
 color:white;
 overflow-x:hidden;
+position:relative;
 }
+
+/* BACKGROUND GLOW */
+
+body::before{
+
+content:'';
+
+position:fixed;
+
+inline-size:550px;
+block-size:550px;
+
+inset-block-start:-200px;
+inset-inline-start:-200px;
+
+background:
+radial-gradient(
+circle,
+rgba(236,72,153,0.14),
+transparent 70%
+);
+
+filter:blur(45px);
+
+z-index:-2;
+
+animation:floatGlow1 10s ease-in-out infinite;
+
+}
+
+body::after{
+
+content:'';
+
+position:fixed;
+
+inline-size:500px;
+block-size:500px;
+
+inset-block-end:-220px;
+inset-inline-end:-220px;
+
+background:
+radial-gradient(
+circle,
+rgba(6,182,212,0.14),
+transparent 70%
+);
+
+filter:blur(45px);
+
+z-index:-2;
+
+animation:floatGlow2 10s ease-in-out infinite;
+
+}
+
+/* HERO */
 
 .hero{
 
@@ -57,39 +117,95 @@ linear-gradient(
 
 }
 
-.hero::before{
+.container{
+
+position:relative;
+
+z-index:2;
+
+max-inline-size:1450px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:1.08fr 0.92fr;
+
+gap:26px;
+
+align-items:flex-start;
+
+}
+
+/* LEFT SECTION */
+
+.left-section{
+
+position:relative;
+
+padding:42px;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+145deg,
+rgba(18,24,45,0.94),
+rgba(8,14,32,0.97)
+);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(24px);
+
+overflow:hidden;
+
+box-shadow:
+0 25px 70px rgba(0,0,0,0.45),
+0 0 50px rgba(139,92,246,0.08);
+
+animation:slideLeft 1s ease;
+
+}
+
+.left-section::before{
 
 content:'';
 
 position:absolute;
 
-inline-size:700px;
-block-size:700px;
+inline-size:240px;
+block-size:240px;
+
+border-radius:50%;
 
 background:
 radial-gradient(
 circle,
-rgba(236,72,153,0.15),
+rgba(236,72,153,0.18),
 transparent 70%
 );
 
-inset-block-start:-250px;
-inset-inline-start:-250px;
+inset-block-start:-80px;
+inset-inline-end:-80px;
 
-filter:blur(50px);
+filter:blur(10px);
 
-animation:moveGlow1 10s ease-in-out infinite alternate;
+animation:orbFloat 8s ease-in-out infinite;
 
 }
 
-.hero::after{
+.left-section::after{
 
 content:'';
 
 position:absolute;
 
-inline-size:650px;
-block-size:650px;
+inline-size:180px;
+block-size:180px;
+
+border-radius:50%;
 
 background:
 radial-gradient(
@@ -98,67 +214,28 @@ rgba(6,182,212,0.15),
 transparent 70%
 );
 
-inset-block-end:-250px;
-inset-inline-end:-250px;
+inset-block-end:-70px;
+inset-inline-start:-70px;
 
-filter:blur(50px);
+filter:blur(10px);
 
-animation:moveGlow2 10s ease-in-out infinite alternate;
-
-}
-
-.container{
-
-position:relative;
-
-z-index:2;
-
-max-inline-size:1400px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:1.1fr 0.9fr;
-
-gap:30px;
-
-align-items:center;
+animation:orbFloat2 8s ease-in-out infinite;
 
 }
 
-.left-section{
-
-padding:55px;
-
-border-radius:38px;
-
-background:
-linear-gradient(
-145deg,
-rgba(20,20,40,0.95),
-rgba(10,16,35,0.95)
-);
-
-border:
-1px solid rgba(255,255,255,0.08);
-
-backdrop-filter:blur(20px);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,0.45);
-
-animation:slideLeft 1s ease;
-
-}
+/* TAG */
 
 .tag{
 
-display:inline-block;
+display:inline-flex;
 
-padding:12px 22px;
+align-items:center;
 
-border-radius:50px;
+gap:10px;
+
+padding:13px 24px;
+
+border-radius:60px;
 
 background:
 linear-gradient(
@@ -167,30 +244,39 @@ linear-gradient(
 #8b5cf6
 );
 
-font-size:13px;
-
-letter-spacing:3px;
+font-size:12px;
 
 font-weight:700;
 
+letter-spacing:3px;
+
 margin-block-end:28px;
 
-animation:floatTag 3s ease-in-out infinite;
+box-shadow:
+0 10px 30px rgba(139,92,246,0.35);
+
+animation:floatTag 4s ease-in-out infinite;
 
 }
+
+/* HEADING */
 
 .main-heading{
 
 font-family:'Syne',sans-serif;
 
 font-size:
-clamp(3.5rem,6vw,6.5rem);
+clamp(3.6rem,6vw,6.4rem);
 
 line-height:0.92;
 
 letter-spacing:-4px;
 
-margin-block-end:24px;
+margin-block-end:26px;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -200,7 +286,7 @@ background:
 linear-gradient(
 90deg,
 #ff4d9d,
-#7c3aed,
+#8b5cf6,
 #00c2ff,
 #00d084
 );
@@ -211,57 +297,74 @@ background-size:300% 300%;
 
 -webkit-text-fill-color:transparent;
 
-animation:gradientMove 6s ease infinite;
+animation:gradientMove 7s ease infinite;
 
 }
+
+/* DESCRIPTION */
 
 .description{
 
 font-size:17px;
 
-line-height:1.8;
+line-height:1.9;
 
 color:#d1d5db;
 
-max-inline-size:650px;
+max-inline-size:680px;
+
+position:relative;
+
+z-index:2;
 
 }
 
+/* TIME BADGE */
+
 .time-badge{
 
-margin-block-start:28px;
+margin-block-start:30px;
 
-display:inline-block;
+display:inline-flex;
 
-padding:15px 24px;
+align-items:center;
 
-border-radius:18px;
+gap:12px;
+
+padding:16px 26px;
+
+border-radius:20px;
 
 background:
 linear-gradient(
 90deg,
-#ec4899,
-#8b5cf6
+rgba(236,72,153,0.25),
+rgba(139,92,246,0.25)
 );
+
+border:
+1px solid rgba(255,255,255,0.08);
 
 font-size:16px;
 
 font-weight:700;
 
+backdrop-filter:blur(12px);
+
 box-shadow:
-0 12px 30px rgba(139,92,246,0.35);
+0 15px 35px rgba(139,92,246,0.22);
 
 }
 
+/* SCHEDULE */
+
 .schedule-grid{
 
-margin-block-start:40px;
+margin-block-start:34px;
 
 display:grid;
 
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
+gap:16px;
 
 }
 
@@ -271,25 +374,25 @@ position:relative;
 
 overflow:hidden;
 
-padding:24px;
+padding:20px;
 
-border-radius:24px;
+border-radius:28px;
 
 background:
 linear-gradient(
 145deg,
-rgba(22,28,58,0.96),
+rgba(24,30,58,0.96),
 rgba(10,18,40,0.98)
 );
 
 border:
 1px solid rgba(255,255,255,0.08);
 
-transition:0.4s ease;
-
-animation:fadeUp 1s ease forwards;
+transition:0.45s ease;
 
 opacity:0;
+
+animation:fadeUp 1s ease forwards;
 
 }
 
@@ -308,76 +411,295 @@ animation-delay:0.6s;
 border-color:#06b6d455;
 }
 
-.schedule-card:nth-child(4){
-animation-delay:0.8s;
-border-color:#f59e0b55;
+.schedule-card::before{
+
+content:'';
+
+position:absolute;
+
+inset-block-start:0;
+inset-inline-start:-120%;
+
+inline-size:100%;
+block-size:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.08),
+transparent
+);
+
+transition:0.7s;
+
 }
 
-.schedule-card:nth-child(5){
-animation-delay:1s;
-border-color:#10b98155;
+.schedule-card:hover::before{
+inset-inline-start:120%;
 }
 
 .schedule-card:hover{
 
 transform:
-translateY(-8px)
-scale(1.02);
+translateY(-10px)
+scale(1.015);
 
 box-shadow:
-0 20px 40px rgba(0,0,0,0.35),
-0 0 25px rgba(139,92,246,0.18);
+0 20px 50px rgba(0,0,0,0.4),
+0 0 30px rgba(139,92,246,0.2);
 
 }
 
 .schedule-card span{
+
 font-size:30px;
+
+display:inline-flex;
+
 }
 
 .schedule-card h4{
 
-font-size:22px;
+font-size:20px;
 
-margin-block-start:14px;
+margin-block-start:12px;
+
+font-weight:700;
 
 line-height:1.4;
 
 }
 
-.schedule-card p{
+.card-title{
+
+font-size:18px;
+
+font-weight:700;
 
 margin-block-start:12px;
 
-line-height:1.8;
+margin-block-end:16px;
 
-color:#cbd5e1;
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#c4b5fd,
+#67e8f9
+);
 
-font-size:14px;
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
 
 }
 
-.form-box{
+/* FEATURES */
 
-padding:45px;
+.feature-list{
 
-border-radius:38px;
+display:grid;
+
+grid-template-columns:repeat(2,minmax(0,1fr));
+
+gap:14px;
+
+margin-block-start:10px;
+
+}
+
+.feature-item{
+
+display:flex;
+
+flex-direction:row;
+
+align-items:center;
+
+gap:14px;
+
+padding:16px;
+
+min-block-size:unset;
+
+border-radius:20px;
 
 background:
 linear-gradient(
 145deg,
-rgba(18,20,45,0.96),
-rgba(10,16,35,0.98)
+rgba(255,255,255,0.06),
+rgba(255,255,255,0.02)
+);
+
+border:
+1px solid rgba(255,255,255,0.07);
+
+transition:0.4s ease;
+
+position:relative;
+
+overflow:hidden;
+
+backdrop-filter:blur(10px);
+
+}
+
+.feature-item::before{
+
+content:'';
+
+position:absolute;
+
+inset-block-start:0;
+inset-inline-start:-120%;
+
+inline-size:100%;
+block-size:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.08),
+transparent
+);
+
+transition:0.7s;
+
+}
+
+.feature-item:hover::before{
+inset-inline-start:120%;
+}
+
+.feature-item:hover{
+
+transform:
+translateY(-6px)
+scale(1.03);
+
+border-color:
+rgba(139,92,246,0.35);
+
+box-shadow:
+0 10px 25px rgba(139,92,246,0.16);
+
+}
+
+.feature-item span{
+
+min-inline-size:52px;
+
+inline-size:52px;
+block-size:52px;
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+background:
+linear-gradient(
+135deg,
+rgba(236,72,153,0.18),
+rgba(139,92,246,0.18)
 );
 
 border:
 1px solid rgba(255,255,255,0.08);
 
-backdrop-filter:blur(20px);
+box-shadow:
+0 10px 20px rgba(139,92,246,0.12);
+
+}
+
+.feature-item p{
+
+margin:0;
+
+font-size:14px;
+
+font-weight:600;
+
+line-height:1.4;
+
+color:#f1f5f9;
+
+flex:1;
+
+}
+
+/* FORM */
+
+.form-box{
+
+position:sticky;
+
+inset-block-start:24px;
+
+padding:42px;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+145deg,
+rgba(14,18,38,0.96),
+rgba(9,13,28,0.98)
+);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(24px);
+
+overflow:hidden;
 
 box-shadow:
-0 20px 60px rgba(0,0,0,0.45);
+0 25px 70px rgba(0,0,0,0.45),
+0 0 40px rgba(236,72,153,0.08);
 
 animation:slideRight 1s ease;
+
+}
+
+.form-box::before{
+
+content:'';
+
+position:absolute;
+
+inset:0;
+
+padding:1px;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+135deg,
+rgba(236,72,153,0.45),
+rgba(139,92,246,0.35),
+rgba(6,182,212,0.35)
+);
+
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+
+mask-composite:exclude;
+
+pointer-events:none;
+
+animation:borderGlow 6s linear infinite;
 
 }
 
@@ -386,26 +708,56 @@ animation:slideRight 1s ease;
 font-family:'Syne',sans-serif;
 
 font-size:
-clamp(2.8rem,4vw,4.5rem);
+clamp(2.8rem,4vw,4.3rem);
 
 line-height:1;
 
-margin-block-end:16px;
+margin-block-end:14px;
+
+text-align:center;
+
+position:relative;
+
+z-index:2;
 
 }
 
 .form-box p{
 
+font-size:15px;
+
+line-height:1.8;
+
+text-align:center;
+
 color:#cbd5e1;
 
 margin-block-end:28px;
 
-line-height:1.7;
+position:relative;
+
+z-index:2;
+
+}
+
+#registerForm{
+
+position:relative;
+
+z-index:2;
+
+display:flex;
+
+flex-direction:column;
+
+gap:2px;
 
 }
 
 .input-group{
+
 margin-block-end:18px;
+
 }
 
 .input-group label{
@@ -417,6 +769,8 @@ margin-block-end:8px;
 font-size:14px;
 
 font-weight:600;
+
+color:#f1f5f9;
 
 }
 
@@ -431,13 +785,13 @@ inline-size:100%;
 
 padding:16px 18px;
 
-border-radius:16px;
+border-radius:18px;
 
 border:
 1px solid rgba(255,255,255,0.08);
 
 background:
-rgba(255,255,255,0.05);
+rgba(255,255,255,0.04);
 
 color:white;
 
@@ -445,7 +799,7 @@ font-size:15px;
 
 outline:none;
 
-transition:0.3s ease;
+transition:0.35s ease;
 
 }
 
@@ -459,11 +813,16 @@ box-shadow:
 
 transform:scale(1.02);
 
+background:
+rgba(255,255,255,0.07);
+
 }
 
 select option{
 color:black;
 }
+
+/* BUTTON */
 
 .submit-btn{
 
@@ -473,7 +832,7 @@ padding:18px;
 
 border:none;
 
-border-radius:18px;
+border-radius:20px;
 
 background:
 linear-gradient(
@@ -498,6 +857,40 @@ transition:0.4s ease;
 
 animation:gradientMove 6s ease infinite;
 
+position:relative;
+
+overflow:hidden;
+
+margin-block-start:6px;
+
+}
+
+.submit-btn::before{
+
+content:'';
+
+position:absolute;
+
+inset-block-start:0;
+inset-inline-start:-120%;
+
+inline-size:100%;
+block-size:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.28),
+transparent
+);
+
+transition:0.7s;
+
+}
+
+.submit-btn:hover::before{
+inset-inline-start:120%;
 }
 
 .submit-btn:hover{
@@ -509,6 +902,8 @@ box-shadow:
 
 }
 
+/* FOOTER NOTE */
+
 .footer-note{
 
 margin-block-start:18px;
@@ -518,6 +913,10 @@ text-align:center;
 color:#94a3b8;
 
 font-size:13px;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -695,108 +1094,134 @@ font-size:14px;
 
 }
 
-@keyframes slideLeft{
+/* ANIMATIONS */
 
+@keyframes slideLeft{
 from{
 opacity:0;
 transform:translateX(-60px);
 }
-
 to{
 opacity:1;
 transform:translateX(0);
 }
-
 }
 
 @keyframes slideRight{
-
 from{
 opacity:0;
 transform:translateX(60px);
 }
-
 to{
 opacity:1;
 transform:translateX(0);
 }
-
 }
 
 @keyframes fadeUp{
-
 from{
 opacity:0;
 transform:translateY(40px);
 }
-
 to{
 opacity:1;
 transform:translateY(0);
 }
-
 }
 
 @keyframes gradientMove{
-
 0%{
 background-position:0% 50%;
 }
-
 50%{
 background-position:100% 50%;
 }
-
 100%{
 background-position:0% 50%;
 }
-
 }
 
 @keyframes floatTag{
-
 0%{
 transform:translateY(0px);
 }
-
 50%{
 transform:translateY(-8px);
 }
-
 100%{
 transform:translateY(0px);
 }
-
 }
 
-@keyframes moveGlow1{
-
-from{
-transform:translate(0,0) scale(1);
+@keyframes orbFloat{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-20px);
+}
+100%{
+transform:translateY(0px);
+}
 }
 
-to{
-transform:translate(80px,40px) scale(1.2);
+@keyframes orbFloat2{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(20px);
+}
+100%{
+transform:translateY(0px);
+}
 }
 
+@keyframes floatGlow1{
+0%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(40px,30px);
+}
+100%{
+transform:translate(0,0);
+}
 }
 
-@keyframes moveGlow2{
-
-from{
-transform:translate(0,0) scale(1);
+@keyframes floatGlow2{
+0%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(-40px,-30px);
+}
+100%{
+transform:translate(0,0);
+}
 }
 
-to{
-transform:translate(-60px,-40px) scale(1.15);
+@keyframes borderGlow{
+0%{
+filter:hue-rotate(0deg);
+}
+100%{
+filter:hue-rotate(360deg);
+}
 }
 
-}
+/* RESPONSIVE */
 
 @media(max-width:1100px){
 
 .container{
 grid-template-columns:1fr;
+gap:24px;
+}
+
+.form-box{
+position:relative;
+inset-block-start:0;
 }
 
 }
@@ -804,37 +1229,75 @@ grid-template-columns:1fr;
 @media(max-width:768px){
 
 .hero{
-padding:20px 14px;
+padding:18px 12px;
 }
 
 .left-section,
 .form-box{
-padding:28px;
+padding:24px;
 border-radius:28px;
 }
 
-.schedule-grid{
-grid-template-columns:1fr;
-}
-
 .main-heading{
-font-size:clamp(2.8rem,12vw,4.4rem);
+font-size:clamp(2.5rem,11vw,4rem);
 letter-spacing:-2px;
+line-height:1;
 }
 
 .description{
+font-size:14px;
+line-height:1.8;
+}
+
+.feature-list{
+grid-template-columns:1fr;
+}
+
+.feature-item{
+padding:14px;
+}
+
+.form-box h2{
+font-size:2.5rem;
+}
+
+.input-group input,
+.input-group select{
+padding:15px;
+font-size:14px;
+}
+
+.submit-btn{
+padding:16px;
 font-size:15px;
 }
 
-.footer-brand,
-.footer-links,
-.footer-contact,
-.footer-social{
+.footer{
+padding:50px 18px 25px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+gap:30px;
 text-align:center;
 }
 
 .social-icons{
 justify-content:center;
+}
+
+.time-badge{
+inline-size:100%;
+justify-content:center;
+text-align:center;
+font-size:14px;
+padding:14px 16px;
+}
+
+.tag{
+font-size:11px;
+padding:10px 18px;
+letter-spacing:2px;
 }
 
 }
@@ -856,91 +1319,110 @@ ASTROVAFIT PRESENTS
 </div>
 
 <h1 class="main-heading">
-5-Day Yoga <br>
+3-Day Yoga <br>
 <span class="gradient-text">
-Reset Challenge
+Wellness Workshop
 </span>
 </h1>
 
 <p class="description">
 
-Reset your body, calm your mind and boost your energy with Astrovafit’s powerful
-5-Day Yoga Reset Challenge designed specially for busy lifestyles and stress relief.
+Today's session is not about becoming flexible.
+It's about becoming healthier, more energetic and more productive in your daily life.
+
+Join Astrovafit’s transformative 3-Day Yoga Wellness Workshop specially designed for stress relief,
+better posture, mobility, mindfulness and healthy habit building.
 
 </p>
 
 <div class="time-badge">
-🕖 DAILY • 7:00 PM – 7:40 PM
+🕖 17 June – 19 June • 7:00 PM – 7:30 PM
 </div>
 
 <div class="schedule-grid">
 
 <div class="schedule-card">
 
+<span>🧘</span>
+
+<h4>
+DAY 1 — 17 June
+</h4>
+
+<div class="card-title">
+Stress Reset & Mind Calm
+</div>
+
+<div class="feature-list">
+
+<div class="feature-item">
 <span>🌿</span>
+<p>Breathing techniques</p>
+</div>
 
-<h4>
-DAY 1 — 14 June
-</h4>
+<div class="feature-item">
+<span>🪑</span>
+<p>Desk stretches</p>
+</div>
 
-<p>
-<b>Release Stress & Stiffness</b><br><br>
+<div class="feature-item">
+<span>🧘</span>
+<p>Guided relaxation</p>
+</div>
 
-Feel relaxed, lighter and refreshed with calming stretches,
-breathwork and stress-release yoga flow.
-</p>
+<div class="feature-item">
+<span>⚡</span>
+<p>Stress reset techniques</p>
+</div>
 
+<div class="feature-item">
+<span>🎯</span>
+<p>Focus & productivity boost</p>
+</div>
+
+</div>
 </div>
 
 <div class="schedule-card">
 
+<span>⚡</span>
+
+<h4>
+DAY 2 — 18 June
+</h4>
+
+<div class="card-title">
+Posture, Mobility & Energy
+</div>
+
+<div class="feature-list">
+
+<div class="feature-item">
 <span>🧍</span>
-
-<h4>
-DAY 2 — 15 June
-</h4>
-
-<p>
-<b>Core & Posture Reset</b><br><br>
-
-Improve posture, activate your core and reduce office-body stiffness
-with posture correction focused yoga.
-</p>
-
+<p>Posture correction</p>
 </div>
 
-<div class="schedule-card">
-
-<span>🔥</span>
-
-<h4>
-DAY 3 — 16 June
-</h4>
-
-<p>
-<b>Fat Burn & Energy Flow</b><br><br>
-
-A high-energy yoga flow session designed to boost metabolism,
-stamina and daily energy levels.
-</p>
-
+<div class="feature-item">
+<span>🤸</span>
+<p>Mobility exercises</p>
 </div>
 
-<div class="schedule-card">
+<div class="feature-item">
+<span>✨</span>
+<p>Spine wellness flow</p>
+</div>
 
-<span>🌸</span>
+<div class="feature-item">
+<span>⚡</span>
+<p>Energy boosting yoga</p>
+</div>
 
-<h4>
-DAY 4 — 17 June
-</h4>
+<div class="feature-item">
+<span>💼</span>
+<p>Workplace wellness tips</p>
+</div>
 
-<p>
-<b>Hormonal Balance & Inner Calm</b><br><br>
-
-Relax your nervous system, balance hormones and experience
-deep inner calm through mindful yoga practices.
-</p>
-
+</div>
 </div>
 
 <div class="schedule-card">
@@ -948,15 +1430,41 @@ deep inner calm through mindful yoga practices.
 <span>✨</span>
 
 <h4>
-DAY 5 — 18 June
+DAY 3 — 19 June
 </h4>
 
-<p>
-<b>International Yoga Day Celebration Flow</b><br><br>
+<div class="card-title">
+Yoga for Daily Life
+</div>
 
-Celebrate yoga with an inspiring full-body flow designed to
-energize, uplift and connect mind, body and soul.
-</p>
+<div class="feature-list">
+
+<div class="feature-item">
+<span>🧘</span>
+<p>Full body yoga flow</p>
+</div>
+
+<div class="feature-item">
+<span>🌸</span>
+<p>Meditation session</p>
+</div>
+
+<div class="feature-item">
+<span>🥗</span>
+<p>Healthy lifestyle tips</p>
+</div>
+
+<div class="feature-item">
+<span>📈</span>
+<p>Habit building framework</p>
+</div>
+
+<div class="feature-item">
+<span>🎉</span>
+<p>International Yoga Day invitation</p>
+</div>
+
+</div>
 
 </div>
 
@@ -971,7 +1479,7 @@ Register Now
 </h2>
 
 <p>
-Fill your details and receive challenge details instantly on Email.
+Fill your details and receive workshop details instantly on Email.
 </p>
 
 <form id="registerForm">
@@ -1104,7 +1612,7 @@ placeholder="Tell us your reason"
 </div>
 
 <button type="submit" class="submit-btn">
-JOIN THE CHALLENGE ✨
+JOIN THE WORKSHOP ✨
 </button>
 
 </form>
@@ -1154,7 +1662,7 @@ The Power to Perform
 📧 contact.astrovafit@gmail.com
 </a>
 
-<a href="https://wa.me/9152011177" target="_blank">
+<a href="https://wa.me/919152011177" target="_blank">
 📱 WhatsApp Support
 </a>
 
@@ -1214,8 +1722,6 @@ target="_blank"
 
 <script>
 
-
-
 const form = document.getElementById('registerForm');
 
 form.addEventListener('submit', async function(e){
@@ -1245,8 +1751,6 @@ document.getElementById('level').value;
 
 const reason =
 document.getElementById('reason').value;
-
-/* GOOGLE FORM */
 
 const googleFormURL =
 'https://docs.google.com/forms/d/e/1FAIpQLSePKzUxatRXwhptEuvIEec7DdSLnXkD8L4nyeEsrEbJ5DXk3A/formResponse';
@@ -1281,11 +1785,6 @@ body:formData
 
 .then(() => {
 
-/* SEND EMAIL */
-
-
-/* SEND EMAIL */
-
 fetch('/.netlify/functions/sendMail', {
 
 method:'POST',
@@ -1315,7 +1814,7 @@ alert(
 `🌸 Thank You ${name}!
 
 You have successfully registered
-for the Yoga Reset Challenge ✨
+for the 3-Day Yoga Wellness Workshop ✨
 
 Please check your Email 💌`
 );
@@ -1323,8 +1822,6 @@ Please check your Email 💌`
 form.reset();
 
 })
-
-
 
 .catch((error) => {
 
