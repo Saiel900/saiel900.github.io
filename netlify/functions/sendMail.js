@@ -79,7 +79,7 @@ border="0"
 cellspacing="0"
 cellpadding="0"
 style="
-max-inline-size:700px;
+max-width:700px;
 background:linear-gradient(135deg,#111827,#0f172a);
 border-radius:28px;
 overflow:hidden;
@@ -94,18 +94,33 @@ border:1px solid rgba(255,255,255,0.08);
 <td
 align="center"
 style="
-padding:24px 20px 10px;
+padding:18px 18px 0;
 background:#0f172a;
 "
 >
+
+<table
+border="0"
+cellspacing="0"
+cellpadding="0"
+style="
+width:100%;
+max-width:340px;
+margin:auto;
+"
+>
+
+<tr>
+
+<td align="center">
 
 <img
 src="https://saiel900.github.io/assets/workshop.jpg"
 alt="AstrovaFit Workshop"
 style="
-inline-size:100%;
-max-inline-size:420px;
-block-size:auto;
+width:100%;
+max-width:340px;
+height:auto;
 display:block;
 margin:auto;
 border-radius:24px;
@@ -119,6 +134,12 @@ border:1px solid rgba(255,255,255,0.08);
 
 </tr>
 
+</table>
+
+</td>
+
+</tr>
+
 <!-- CONTENT -->
 
 <tr>
@@ -126,18 +147,15 @@ border:1px solid rgba(255,255,255,0.08);
 <td style="padding:38px 30px;">
 
 <div style="
-display:inline-block;
-padding:10px 18px;
-border-radius:50px;
-background:linear-gradient(90deg,#ec4899,#8b5cf6);
-color:white;
-font-size:12px;
-font-weight:bold;
-letter-spacing:2px;
-margin-block-end:25px;
+font-size:14px;
+font-weight:700;
+letter-spacing:3px;
+color:#8b5cf6;
+margin-bottom:18px;
+text-transform:uppercase;
 ">
 
-ASTROVAFIT PRESENTS
+🌸 Yoga Wellness Workshop
 
 </div>
 
@@ -157,7 +175,7 @@ font-weight:800;
 font-size:17px;
 line-height:1.9;
 color:#d1d5db;
-margin-block-end:25px;
+margin-bottom:25px;
 ">
 
 Thank you for registering for the
@@ -174,13 +192,13 @@ with AstrovaFit 🌿
 padding:24px;
 border-radius:22px;
 background:#131c31;
-margin-block-end:24px;
+margin-bottom:24px;
 border:1px solid rgba(255,255,255,0.08);
 ">
 
 <h2 style="
-margin-block-start:0;
-margin-block-end:16px;
+margin-top:0;
+margin-bottom:16px;
 color:#ffffff;
 font-size:24px;
 ">
@@ -214,13 +232,13 @@ margin:0;
 padding:24px;
 border-radius:22px;
 background:#131c31;
-margin-block-end:24px;
+margin-bottom:24px;
 border:1px solid rgba(255,255,255,0.08);
 ">
 
 <h2 style="
-margin-block-start:0;
-margin-block-end:16px;
+margin-top:0;
+margin-bottom:16px;
 color:#ffffff;
 font-size:24px;
 ">
@@ -351,7 +369,7 @@ box-shadow:0 10px 25px rgba(37,211,102,0.25);
 padding:22px;
 border-radius:20px;
 background:#1e1b4b;
-margin-block-start:10px;
+margin-top:10px;
 border:1px solid rgba(255,255,255,0.08);
 ">
 
@@ -373,14 +391,14 @@ will be shared there.
 <!-- FOOTER -->
 
 <div style="
-margin-block-start:35px;
-padding-block-start:25px;
-border-block-start:1px solid rgba(255,255,255,0.08);
+margin-top:35px;
+padding-top:25px;
+border-top:1px solid rgba(255,255,255,0.08);
 text-align:center;
 ">
 
 <h3 style="
-margin-block-end:12px;
+margin-bottom:12px;
 color:#ffffff;
 font-size:26px;
 ">
@@ -474,3 +492,4 @@ error:error.message
 }
 
 };
+
