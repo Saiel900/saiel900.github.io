@@ -55,7 +55,7 @@ border:1px solid rgba(255,255,255,0.08);
 <!-- TOP IMAGE -->
 
 <img
-src="./assets/1.jpg"
+src="./assets/1.png"
 alt="AstrovaFit Workshop"
 style="
 inline-size:100%;
