@@ -36,37 +36,94 @@ subject:
 
 htmlContent:`
 
-<div style="
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+</head>
+
+<body style="
 margin:0;
 padding:0;
-background:#0b1020;
+background:#070b1a;
 font-family:Arial,sans-serif;
 ">
 
-<div style="
+<table
+width="100%"
+border="0"
+cellspacing="0"
+cellpadding="0"
+style="
+background:#070b1a;
+padding:20px 10px;
+"
+>
+
+<tr>
+
+<td align="center">
+
+<table
+width="100%"
+border="0"
+cellspacing="0"
+cellpadding="0"
+style="
 max-inline-size:700px;
-margin:auto;
 background:linear-gradient(135deg,#111827,#0f172a);
-border-radius:24px;
+border-radius:28px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.08);
-">
+"
+>
 
-<!-- TOP IMAGE -->
+<!-- IMAGE SECTION -->
+
+<tr>
+
+<td
+align="center"
+style="
+padding:24px 20px 10px;
+background:#0f172a;
+"
+>
 
 <img
 src="https://saiel900.github.io/assets/workshop.jpg"
 alt="AstrovaFit Workshop"
 style="
 inline-size:100%;
+max-inline-size:420px;
+block-size:auto;
 display:block;
-object-fit:cover;
+margin:auto;
+border-radius:24px;
+object-fit:contain;
+box-shadow:0 15px 40px rgba(0,0,0,0.35);
+border:1px solid rgba(255,255,255,0.08);
 "
 />
 
+</td>
+
+</tr>
+
 <!-- CONTENT -->
 
-<div style="padding:40px;">
+<tr>
+
+<td style="padding:38px 30px;">
 
 <div style="
 display:inline-block;
@@ -79,34 +136,43 @@ font-weight:bold;
 letter-spacing:2px;
 margin-block-end:25px;
 ">
+
 ASTROVAFIT PRESENTS
+
 </div>
 
 <h1 style="
-font-size:38px;
+font-size:40px;
 line-height:1.1;
 margin:0 0 20px;
 color:white;
+font-weight:800;
 ">
+
 ✨ Welcome ${data.name}
+
 </h1>
 
 <p style="
 font-size:17px;
-line-height:1.8;
+line-height:1.9;
 color:#d1d5db;
-margin-block-end:22px;
+margin-block-end:25px;
 ">
+
 Thank you for registering for the
 <b style="color:#ffffff;">
 3-Day Yoga Wellness Workshop
 </b>
 with AstrovaFit 🌿
+
 </p>
 
+<!-- DETAILS -->
+
 <div style="
-padding:22px;
-border-radius:20px;
+padding:24px;
+border-radius:22px;
 background:#131c31;
 margin-block-end:24px;
 border:1px solid rgba(255,255,255,0.08);
@@ -114,17 +180,30 @@ border:1px solid rgba(255,255,255,0.08);
 
 <h2 style="
 margin-block-start:0;
+margin-block-end:16px;
 color:#ffffff;
-font-size:22px;
+font-size:24px;
 ">
+
 📅 Workshop Details
+
 </h2>
 
-<p style="color:#d1d5db;line-height:1.8;">
+<p style="
+color:#d1d5db;
+line-height:2;
+font-size:15px;
+margin:0;
+">
+
 🗓 <b>Dates:</b> 17 June – 19 June<br>
+
 🕖 <b>Time:</b> 7:00 PM – 7:30 PM<br>
+
 💻 <b>Mode:</b> Online Live Workshop<br>
+
 🌸 <b>Organized By:</b> AstrovaFit
+
 </p>
 
 </div>
@@ -132,8 +211,8 @@ font-size:22px;
 <!-- BENEFITS -->
 
 <div style="
-padding:22px;
-border-radius:20px;
+padding:24px;
+border-radius:22px;
 background:#131c31;
 margin-block-end:24px;
 border:1px solid rgba(255,255,255,0.08);
@@ -141,33 +220,109 @@ border:1px solid rgba(255,255,255,0.08);
 
 <h2 style="
 margin-block-start:0;
+margin-block-end:16px;
 color:#ffffff;
-font-size:22px;
+font-size:24px;
 ">
+
 🌿 What You’ll Experience
+
 </h2>
 
-<ul style="
-padding-inline-start:20px;
-color:#d1d5db;
-line-height:2;
+<table
+width="100%"
+cellspacing="0"
+cellpadding="0"
+>
+
+<tr>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
 font-size:15px;
+line-height:1.8;
 ">
 
-<li>Stress Relief & Relaxation</li>
-<li>Posture & Mobility Improvement</li>
-<li>Mindfulness & Breathing Practices</li>
-<li>Full Body Yoga Flow</li>
-<li>Meditation & Lifestyle Guidance</li>
-<li>Healthy Habit Building</li>
+✅ Stress Relief & Relaxation
 
-</ul>
+</td>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
+font-size:15px;
+line-height:1.8;
+">
+
+✅ Posture Improvement
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
+font-size:15px;
+line-height:1.8;
+">
+
+✅ Mobility Exercises
+
+</td>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
+font-size:15px;
+line-height:1.8;
+">
+
+✅ Meditation Session
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
+font-size:15px;
+line-height:1.8;
+">
+
+✅ Full Body Yoga Flow
+
+</td>
+
+<td style="
+padding:10px;
+color:#e2e8f0;
+font-size:15px;
+line-height:1.8;
+">
+
+✅ Healthy Habit Building
+
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
 <!-- WHATSAPP BUTTON -->
 
-<div style="text-align:center;margin:35px 0;">
+<div style="
+text-align:center;
+margin:35px 0;
+">
 
 <a
 href="https://chat.whatsapp.com/JVKChlSHJOB6nnuK80fnnY?s=sw&p=a&mlu=0"
@@ -203,12 +358,12 @@ border:1px solid rgba(255,255,255,0.08);
 <p style="
 margin:0;
 font-size:15px;
-line-height:1.8;
+line-height:1.9;
 color:#e2e8f0;
 ">
 
 ✨ Please join the WhatsApp community before the workshop starts.
-All live session links, reminders, updates and workshop materials
+All workshop updates, reminders, session links and announcements
 will be shared there.
 
 </p>
@@ -227,14 +382,18 @@ text-align:center;
 <h3 style="
 margin-block-end:12px;
 color:#ffffff;
+font-size:26px;
 ">
+
 AstrovaFit
+
 </h3>
 
 <p style="
 color:#94a3b8;
-line-height:1.8;
+line-height:1.9;
 font-size:14px;
+margin:0;
 ">
 
 The Power to Perform 🌸<br><br>
@@ -245,11 +404,21 @@ The Power to Perform 🌸<br><br>
 
 </div>
 
-</div>
+</td>
 
-</div>
+</tr>
 
-</div>
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>
 
 `
 
